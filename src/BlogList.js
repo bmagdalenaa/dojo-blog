@@ -1,6 +1,6 @@
 const BlogList = ({blogs,title}) => {
 
-
+// This can be done in shorter form as above.
 // const BlogList = (props) => {
 //     const blogs = props.blogs;
 
