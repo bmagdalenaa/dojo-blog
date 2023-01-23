@@ -44,4 +44,3 @@ const { data: blog, error, isPending} = useFetch('http://localhost:8000/blogs/' 
 }
 
 export default BlogDetails;
-export default BlogDetails;
