@@ -12,9 +12,9 @@ const { data: blog, error, isPending} = useFetch('http://localhost:8000/blogs/' 
             { error && <div> {error} </div>}
             { blog &&(
                 <article>
-                    <h2>Blog Details - { id }</h2>
+                    <h2>{ blog.title }</h2>
                     <p>Written by {blog.author}</p>
-                    <div>{blog.body}</div>
+                    <div>{ blog.body }</div>
                 </article>
             )}
         </div>
