@@ -9,8 +9,6 @@ const useFetch = (url) => {
     // Hook
     useEffect(() => {// This will run every time there is  re-render when the page loads and when there are changes.
          const abortCont = new AbortController();
-
-        setTimeout(() =>  {// Sets a timer
             fetch(url, { signal: abortCont.signal })
                 .then(res => { // responce object to get json.
                     if(!res.ok){
@@ -25,13 +23,12 @@ const useFetch = (url) => {
                 })
                 .catch(err => { // catches any kind of network error
                     if(err.name === 'AbortError'){
-                        console.log('fetch aborted')
+                        console.log('fetch aborted');
                     } else{ // auto catches network/ connection errors
                        setIsPending(false);
                        setError(err.message); 
                     }               
-                })
-            }, 1000);
+                });
 
             return () => abortCont.abort();// aborts whatever is associated with it. This case it is fetch.
         }, [url]); //using square brackets ensure that the useEffect hook only happens after the first initial render. When the state changes, it wont run it again.
@@ -40,3 +37,5 @@ const useFetch = (url) => {
  }
 
 export default useFetch;
+
+// setTimeout(() =>  {// Sets a timer} 1000)
